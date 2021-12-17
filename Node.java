@@ -1,3 +1,6 @@
+/**
+ * @author Pranil Shrestha
+ */
 public class Node <T>
 {
     T data;

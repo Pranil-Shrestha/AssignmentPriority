@@ -1,3 +1,6 @@
+/**
+ * @author Pranil Shrestha
+ */
 public class PQ
 {
     Node <PriorityFunction> front;

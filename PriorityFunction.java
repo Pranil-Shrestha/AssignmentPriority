@@ -1,3 +1,6 @@
+/**
+ * @author Pranil Shrestha
+ */
 public class PriorityFunction
 {
     private Double weight;
