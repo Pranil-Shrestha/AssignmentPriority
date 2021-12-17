@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * @author Pranil Shrestha
  */
@@ -7,6 +9,7 @@ public class PQ
     Node <PriorityFunction> back;
     Node <PriorityFunction> current;
     int size;
+    PriorityFunction [] table;
 
     public PQ()
     {
@@ -95,6 +98,43 @@ public class PQ
         return returnNode;
     }
 
+    //peeks the front of the queue.
+    public Node<PriorityFunction> peek()
+    {
+        return front;
+    }
+
+    //converts the linked list to arraylist
+    private ArrayList<PriorityFunction> toArrayList()
+    {
+        ArrayList<PriorityFunction> returnArrayList = new ArrayList<>();
+        Node<PriorityFunction> current = front;
+        returnArrayList.add(null);
+        for (int i = 1; current != null; i++)
+        {
+            returnArrayList.add(i, current.getData());
+            current = current.getNext();
+        }   
+
+        return returnArrayList;
+    }
+
+    // converts the arraylist to array.
+    // Purpose: to use it as a heap.
+    public PriorityFunction [] toArray()
+    {
+        table = new PriorityFunction[size + 1];
+        ArrayList<PriorityFunction> internalArrayList = toArrayList();
+        for (int i = 0; i < table.length; i ++)
+        {
+            table[i] = internalArrayList.get(i);
+        }
+
+        return table;
+    }
+
+   
+    
 
     // public static void main (String [] args)
     // {   
@@ -125,12 +165,28 @@ public class PQ
     //     p1.enqueue(c3);
     //     p1.enqueue(c1);
     //     p1.enqueue(c2);
+
+    //     PriorityFunction [] test = p1.toArray();
         
     //     System.out.println(p1.dequeue().getData().getAssignmentName());
     //     System.out.println(p1.dequeue().getData().getAssignmentName());
     //     System.out.println(p1.dequeue().getData().getAssignmentName());
     //     System.out.println(p1.dequeue().getData().getAssignmentName());
     //     System.out.println(p1.dequeue().getData().getAssignmentName());
+
+    //     System.out.println("New line");
+    //     System.out.println();
+    //     for (int i = 0; i < test.length; i++)
+    //     {
+    //         if (test[i] == null)
+    //         {
+    //             System.out.println("Null");
+    //         }
+    //         else
+    //         {
+    //             System.out.println(test[i].toString());
+    //         }
+    //     }
 
 
 
